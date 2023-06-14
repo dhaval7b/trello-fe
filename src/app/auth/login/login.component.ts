@@ -5,10 +5,10 @@ import { RegisterRequest } from '../types/registerRequest.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class RegisterComponent {
+export class LoginComponent {
   error: string | null = null; 
   form = this.fb.group({
     email: ['', Validators.required],
