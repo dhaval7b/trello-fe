@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, filter, map } from 'rxjs';
 import { CurrentUserInterface } from './current-user.interface';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
@@ -9,6 +9,11 @@ import { LoginRequest } from './types/loginRequest.interface';
 @Injectable()
 export class AuthService {
   currentUser$ = new BehaviorSubject<CurrentUserInterface | null | undefined>(undefined);
+
+  isLogged$ = this.currentUser$.pipe(
+    filter(currentUser=> currentUser!== undefined), 
+    map(currentUser =>  Boolean(currentUser))
+    );
 
   register(registerRequest: RegisterRequest): Observable<CurrentUserInterface>{
     const url: string = `${environment.apiUrl}/users`;
