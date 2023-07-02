@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
-    selector: 'app-inline-from',
+    selector: 'inline-form',
     templateUrl: "./inline-form.component.html"
 })
 export class InlineFormComponent{
@@ -36,6 +36,6 @@ export class InlineFormComponent{
     this.form.reset();
   }
 
-    constructor(private fb: FormBuilder){}
+  constructor(private fb: FormBuilder){}
 
 }
