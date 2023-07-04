@@ -6,9 +6,7 @@ import { environment } from "src/environments/environment";
 
 @Injectable()
 export class BoardsService{
-    // createBoard(title: string) {
-    //   throw new Error('Method not implemented.');
-    // }
+
     constructor(private http: HttpClient){}
 
     getBoards(): Observable<BoardsInterface[]>{
@@ -17,8 +15,10 @@ export class BoardsService{
     }
 
     getBoardById(boardId:string): Observable<BoardsInterface>{
-      const url = `${environment.apiUrl}/board/${boardId}`;
-      return this.http.get<BoardsInterface>(url);
+      const url = `${environment.apiUrl}/boards/${boardId}`;
+      const test = this.http.get<BoardsInterface>(url);
+      // console.log(test)
+      return test;
     }
     createBoard(title: string): Observable<BoardsInterface>{
       const url = environment.apiUrl + "/boards";

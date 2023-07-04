@@ -27,15 +27,13 @@ export class RegisterComponent {
   onSubmit(): void{
     this.authService.register(this.form.value as RegisterRequest).subscribe({
       next: (currentUser) => {
-        console.log('current user', currentUser);
+        // console.log('current user', currentUser);
         this.authService.setToken(currentUser);
         this.authService.setCurrentUser(currentUser);
         this.errorMessage = null;
         this.router.navigateByUrl("/");
       },
       error: (err: HttpErrorResponse) => {
-        console.log('err', err.error);
-        // this.errorMessage = err.error.join(', ');
           this.errorMessage = err.error;
         
       }

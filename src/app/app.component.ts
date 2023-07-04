@@ -16,20 +16,18 @@ export class AppComponent implements OnInit {
           this.authService.setCurrentUser(currentUser);
         },
         error: (err) =>{
-          console.log("you got this error")
-          console.log(err);
           this.authService.setCurrentUser(null);
         }
       })
 
-      this.authService.currentUser$.subscribe((res)=>{
-        console.log("res", res);
-      })
+      // this.authService.currentUser$.subscribe((res)=>{
+      //   console.log("res", res);
+      // })
 
-      this.authService.isLogged$.subscribe(
-        (res)=>{
-          console.log("is loggedin", res);
-        }
-      )
+      // this.authService.isLogged$.subscribe(
+      //   (res)=>{
+      //     console.log("is loggedin", res);
+      //   }
+      // )
   }
 }
