@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth/auth.service';
+import { SocketService } from './shared/services/socket.service';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,9 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'trello-fe';
-  constructor(private authService: AuthService){}
+  constructor(
+    private authService: AuthService,
+    private socketService: SocketService){}
 
   ngOnInit(): void {
       this.authService.getCurrentUser().subscribe({
